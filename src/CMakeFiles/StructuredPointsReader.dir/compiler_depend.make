@@ -317,6 +317,16 @@ CMakeFiles/StructuredPointsReader.dir/StructuredPointsReader.o: StructuredPoints
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h \
   /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLCDNumber \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlcdnumber.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFrame \
+  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
+  /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h \
   /usr/include/vtk-6.3/vtkSmartPointer.h \
   /usr/include/vtk-6.3/vtkSmartPointerBase.h \
   /usr/include/vtk-6.3/vtkCommonCoreModule.h \
@@ -526,8 +536,6 @@ CMakeFiles/StructuredPointsReader.dir/StructuredPointsReader.o: StructuredPoints
 
 /usr/include/vtk-6.3/vtkCommonDataModelModule.h:
 
-/usr/include/vtk-6.3/vtkPolyData.h:
-
 /usr/include/vtk-6.3/vtkWeakPointerBase.h:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
@@ -575,6 +583,22 @@ CMakeFiles/StructuredPointsReader.dir/StructuredPointsReader.o: StructuredPoints
 /usr/include/c++/7/bits/locale_conv.h:
 
 /usr/include/libintl.h:
+
+/usr/include/x86_64-linux-gnu/c++/7/bits/time_members.h:
+
+/usr/include/c++/7/bits/locale_facets_nonio.h:
+
+/usr/include/vtk-6.3/vtkUnsignedCharArray.h:
+
+/usr/include/c++/7/cassert:
+
+/usr/include/c++/7/locale:
+
+/usr/include/c++/7/iomanip:
+
+/usr/include/x86_64-linux-gnu/c++/7/bits/c++io.h:
+
+/usr/include/c++/7/bits/codecvt.h:
 
 /usr/include/time.h:
 
@@ -624,6 +648,8 @@ CMakeFiles/StructuredPointsReader.dir/StructuredPointsReader.o: StructuredPoints
 
 /usr/include/c++/7/bits/stl_pair.h:
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLCDNumber:
+
 /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
@@ -633,8 +659,6 @@ CMakeFiles/StructuredPointsReader.dir/StructuredPointsReader.o: StructuredPoints
 /usr/include/c++/7/typeinfo:
 
 /usr/include/c++/7/bits/postypes.h:
-
-/usr/include/c++/7/bits/locale_facets_nonio.h:
 
 /usr/include/c++/7/stdlib.h:
 
@@ -649,8 +673,6 @@ CMakeFiles/StructuredPointsReader.dir/StructuredPointsReader.o: StructuredPoints
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qprocessordetection.h:
-
-/usr/include/x86_64-linux-gnu/c++/7/bits/c++io.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h:
 
@@ -714,10 +736,6 @@ CMakeFiles/StructuredPointsReader.dir/StructuredPointsReader.o: StructuredPoints
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
-/usr/include/x86_64-linux-gnu/c++/7/bits/c++allocator.h:
-
-/usr/include/c++/7/limits:
-
 /usr/include/c++/7/bits/uniform_int_dist.h:
 
 /usr/include/x86_64-linux-gnu/c++/7/bits/atomic_word.h:
@@ -765,8 +783,6 @@ CMakeFiles/StructuredPointsReader.dir/StructuredPointsReader.o: StructuredPoints
 /usr/include/c++/7/bits/std_abs.h:
 
 /usr/include/vtk-6.3/vtkSmartPointer.h:
-
-/usr/include/x86_64-linux-gnu/c++/7/bits/time_members.h:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
@@ -942,6 +958,10 @@ CMakeFiles/StructuredPointsReader.dir/StructuredPointsReader.o: StructuredPoints
 
 /usr/include/c++/7/bits/uses_allocator.h:
 
+/usr/include/c++/7/bits/fstream.tcc:
+
+/usr/include/c++/7/bits/stl_iterator_base_types.h:
+
 /usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
 
 /usr/include/c++/7/bits/move.h:
@@ -1096,12 +1116,6 @@ StructuredPointsReader.cxx:
 
 /usr/include/c++/7/cwctype:
 
-/usr/include/vtk-6.3/vtkUnsignedCharArray.h:
-
-/usr/include/c++/7/cassert:
-
-/usr/include/c++/7/locale:
-
 /usr/include/c++/7/bits/locale_classes.tcc:
 
 /usr/include/x86_64-linux-gnu/c++/7/bits/error_constants.h:
@@ -1144,7 +1158,7 @@ StructuredPointsReader.cxx:
 
 /usr/include/c++/7/bits/stl_list.h:
 
-/usr/include/c++/7/iomanip:
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout:
 
 /usr/lib/gcc/x86_64-linux-gnu/7/include-fixed/syslimits.h:
 
@@ -1288,6 +1302,24 @@ StructuredPointsReader.cxx:
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h:
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlcdnumber.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h:
+
+/usr/include/x86_64-linux-gnu/c++/7/bits/c++allocator.h:
+
+/usr/include/c++/7/limits:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFrame:
+
+/usr/include/vtk-6.3/vtkPolyData.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QString:
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qflags.h:
 
 /usr/include/c++/7/debug/assertions.h:
@@ -1301,9 +1333,3 @@ StructuredPointsReader.cxx:
 /usr/include/vtk-6.3/vtkIOStream.h:
 
 /usr/include/c++/7/iostream:
-
-/usr/include/c++/7/bits/codecvt.h:
-
-/usr/include/c++/7/bits/stl_iterator_base_types.h:
-
-/usr/include/c++/7/bits/fstream.tcc:
