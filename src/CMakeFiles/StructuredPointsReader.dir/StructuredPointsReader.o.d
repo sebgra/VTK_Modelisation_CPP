@@ -354,7 +354,12 @@ CMakeFiles/StructuredPointsReader.dir/StructuredPointsReader.o: \
  /usr/include/vtk-6.3/vtkPropCollection.h \
  /usr/include/vtk-6.3/vtkCollection.h /usr/include/vtk-6.3/vtkVolume.h \
  /usr/include/vtk-6.3/vtkActorCollection.h \
- /usr/include/vtk-6.3/vtkActor.h /usr/include/vtk-6.3/QVTKWidget.h \
+ /usr/include/vtk-6.3/vtkActor.h /usr/include/vtk-6.3/vtkContourFilter.h \
+ /usr/include/vtk-6.3/vtkContourValues.h \
+ /usr/include/vtk-6.3/vtkCommonMiscModule.h \
+ /usr/include/vtk-6.3/vtkLookupTable.h \
+ /usr/include/vtk-6.3/vtkScalarsToColors.h \
+ /usr/include/vtk-6.3/QVTKWidget.h \
  /usr/include/vtk-6.3/vtkGUISupportQtModule.h \
  /usr/include/vtk-6.3/vtkInteractionStyleModule.h \
  /usr/include/vtk-6.3/vtkRenderingOpenGLModule.h \

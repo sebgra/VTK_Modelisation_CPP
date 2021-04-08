@@ -80,6 +80,11 @@
 #include <vtkActor.h>
 #include <vtkRenderWindow.h>
 #include <vtkRenderer.h>
+#include <vtkContourFilter.h>
+#include <vtkLookupTable.h>
+#include <vtkStructuredPointsReader.h>
+
+
 
 #include <QVTKWidget.h>
 
@@ -94,6 +99,8 @@ int main(int argc, char **argv)
   //////////////////////////////////// Functions //////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////
+
+  
 
   /////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -343,7 +350,43 @@ int main(int argc, char **argv)
   /////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////
 
-  // QVTKWidget *widget = new QVTKWidget;
+
+vtkSmartPointer<vtkStructuredPointsReader> reader =
+    vtkSmartPointer<vtkStructuredPointsReader>::New();
+  reader->SetFileName(inputFilename.c_str());
+  reader->Update();
+
+vtkSmartPointer<vtkContourFilter> contour_skin =
+    vtkSmartPointer<vtkContourFilter>::New();
+    
+vtkSmartPointer<vtkContourFilter> contour_bone =
+    vtkSmartPointer<vtkContourFilter>::New();    
+
+
+
+
+  vtkSmartPointer<vtkLookupTable> lut_skin =
+    vtkSmartPointer<vtkLookupTable>::New();
+
+  lut_skin -> SetNumberOfColors(256);
+  lut_skin -> SetTableRange(0,255);
+  lut_skin -> SetHueRange(0,0.5);
+  lut_skin -> SetSaturationRange(0.0,0.1);
+  lut_skin -> SetValueRange(0.0,0.1);
+  lut_skin -> SetAlphaRange(0.0,0.1);
+  lut_skin -> Build();
+
+  vtkSmartPointer<vtkLookupTable> lut_bone =
+    vtkSmartPointer<vtkLookupTable>::New();
+  
+  lut_bone -> SetNumberOfColors(256);
+  lut_bone -> SetTableRange(0,255);
+  lut_bone -> SetHueRange(0,0.5);
+  lut_bone -> SetSaturationRange(0.0,0.1);
+  lut_bone -> SetValueRange(0.0,0.1);
+  lut_bone -> SetAlphaRange(0.0,0.1);
+  lut_bone -> Build();
+   // QVTKWidget *widget = new QVTKWidget;
   // widget->resize( 500, 500 );
 
   // QSlider *slider = new QSlider(Qt::Horizontal,0);
@@ -369,6 +412,9 @@ int main(int argc, char **argv)
   renderer->AddActor( sphereActor );
 
   widget->GetRenderWindow()->AddRenderer( renderer );
+
+  vtkRenderWindowInteractor* iren = widget->GetRenderWindow()->GetInteractor();// Get interactor
+
 
   fenetre.setLayout(main_layout);
 

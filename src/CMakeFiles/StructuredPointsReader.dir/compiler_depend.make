@@ -436,6 +436,11 @@ CMakeFiles/StructuredPointsReader.dir/StructuredPointsReader.o: StructuredPoints
   /usr/include/vtk-6.3/vtkVolume.h \
   /usr/include/vtk-6.3/vtkActorCollection.h \
   /usr/include/vtk-6.3/vtkActor.h \
+  /usr/include/vtk-6.3/vtkContourFilter.h \
+  /usr/include/vtk-6.3/vtkContourValues.h \
+  /usr/include/vtk-6.3/vtkCommonMiscModule.h \
+  /usr/include/vtk-6.3/vtkLookupTable.h \
+  /usr/include/vtk-6.3/vtkScalarsToColors.h \
   /usr/include/vtk-6.3/QVTKWidget.h \
   /usr/include/vtk-6.3/vtkGUISupportQtModule.h \
   /usr/include/vtk-6.3/vtkInteractionStyleModule.h \
@@ -469,6 +474,10 @@ CMakeFiles/StructuredPointsReader.dir/StructuredPointsReader.o: StructuredPoints
 /usr/include/vtk-6.3/vtkInteractionStyleModule.h:
 
 /usr/include/vtk-6.3/vtkGUISupportQtModule.h:
+
+/usr/include/vtk-6.3/vtkScalarsToColors.h:
+
+/usr/include/vtk-6.3/vtkCommonMiscModule.h:
 
 /usr/include/vtk-6.3/vtkActorCollection.h:
 
@@ -633,6 +642,8 @@ CMakeFiles/StructuredPointsReader.dir/StructuredPointsReader.o: StructuredPoints
 /usr/include/c++/7/bits/locale_facets.h:
 
 /usr/include/x86_64-linux-gnu/bits/locale.h:
+
+/usr/include/vtk-6.3/vtkLookupTable.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
@@ -946,6 +957,8 @@ CMakeFiles/StructuredPointsReader.dir/StructuredPointsReader.o: StructuredPoints
 
 /usr/include/vtk-6.3/QVTKWidget.h:
 
+/usr/include/vtk-6.3/vtkContourValues.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
@@ -1063,6 +1076,8 @@ StructuredPointsReader.cxx:
 /usr/include/vtk-6.3/QVTKInteractor.h:
 
 /usr/include/c++/7/cstdio:
+
+/usr/include/vtk-6.3/vtkContourFilter.h:
 
 /usr/include/c++/7/sstream:
 
