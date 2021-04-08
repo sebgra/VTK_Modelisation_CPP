@@ -95,18 +95,14 @@ int main(int argc, char** argv)
 
   /////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////
-
   //////////////////////////////////// Functions //////////////////////////////////////////////////
-
   /////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////
 
 
   /////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////
-
   ////////////////////////////////////// Layouts //////////////////////////////////////////////////
-
   /////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -119,9 +115,7 @@ int main(int argc, char** argv)
 
   /////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////
-
   ////////////////////////////////////// Widgets //////////////////////////////////////////////////
-
   /////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -303,46 +297,103 @@ int main(int argc, char** argv)
 
 
   QFrame *Frame = new QFrame();
-  //Frame->setFrameShape(Qt::StyledPanel); // problems
+  Frame->setFrameShape(QFrame::StyledPanel); 
+  Frame->setFrameShadow(QFrame::Raised);
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////// Organisation /////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////
+
+  main_layout -> addWidget(Frame);
+  main_layout -> addLayout(vertical_bone);
+  main_layout -> addLayout(vertical_skin);
+
+  vertical_bone -> addWidget(Bone_Label);
+  vertical_bone -> addLayout(horizontal_grid_bone);
+
+  vertical_skin -> addWidget(Skin_Label);
+  vertical_skin -> addLayout(horizontal_grid_skin);
+
+  vertical_skin -> addWidget(Label_1);
+  vertical_skin -> addWidget(Display_1);
+  vertical_skin -> addWidget(Slider_1);
+
+  vertical_skin -> addWidget(Label_2);
+  vertical_skin -> addWidget(Display_2);
+  vertical_skin -> addWidget(Slider_2);
+
+  vertical_skin -> addWidget(Label_3);
+  vertical_skin -> addWidget(Display_3);
+  vertical_skin -> addWidget(Slider_3);
+
+  vertical_skin -> addWidget(Label_4);
+  vertical_skin -> addWidget(Display_4);
+  vertical_skin -> addWidget(Slider_4);
+
+  vertical_skin -> addWidget(Label_5);
+  vertical_skin -> addWidget(Display_5);
+  vertical_skin -> addWidget(Slider_5);
+
+  vertical_bone -> addWidget(Label_6);
+  vertical_bone -> addWidget(Display_6);
+  vertical_bone -> addWidget(Slider_6);
+
+  vertical_bone -> addWidget(Label_7);
+  vertical_bone -> addWidget(Display_7);
+  vertical_bone -> addWidget(Slider_7);
+
+  vertical_bone -> addWidget(Label_8);
+  vertical_bone -> addWidget(Display_8);
+  vertical_bone -> addWidget(Slider_8);
+
+  vertical_bone -> addWidget(Label_9);
+  vertical_bone -> addWidget(Display_9);
+  vertical_bone -> addWidget(Slider_9);
+
+  vertical_bone -> addWidget(Label_10);
+  vertical_bone -> addWidget(Display_10);
+  vertical_bone -> addWidget(Slider_10);
+
 
 
   /////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////// VTK Part /////////////////////////////////////////////////
-
   /////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////
 
-  QVTKWidget *widget = new QVTKWidget;
-  widget->resize( 500, 500 );
+  // QVTKWidget *widget = new QVTKWidget;
+  // widget->resize( 500, 500 );
 
-  QSlider *slider = new QSlider(Qt::Horizontal,0);
+  // QSlider *slider = new QSlider(Qt::Horizontal,0);
 
-  QVBoxLayout *layout = new QVBoxLayout(); //
+  // QVBoxLayout *layout = new QVBoxLayout(); //
 
-  layout -> addWidget(widget);
-  layout -> addWidget(slider);
+  // layout -> addWidget(widget);
+  // layout -> addWidget(slider);
 
-  vtkSmartPointer<vtkSphereSource> sphereSource =
-  vtkSmartPointer<vtkSphereSource>::New();
+  // vtkSmartPointer<vtkSphereSource> sphereSource =
+  // vtkSmartPointer<vtkSphereSource>::New();
 
-  vtkSmartPointer<vtkPolyDataMapper> sphereMapper =
-  vtkSmartPointer<vtkPolyDataMapper>::New();
-  sphereMapper->SetInputConnection( sphereSource->GetOutputPort() );
+  // vtkSmartPointer<vtkPolyDataMapper> sphereMapper =
+  // vtkSmartPointer<vtkPolyDataMapper>::New();
+  // sphereMapper->SetInputConnection( sphereSource->GetOutputPort() );
 
-  vtkSmartPointer<vtkActor> sphereActor =
-  vtkSmartPointer<vtkActor>::New();
-  sphereActor->SetMapper( sphereMapper );
+  // vtkSmartPointer<vtkActor> sphereActor =
+  // vtkSmartPointer<vtkActor>::New();
+  // sphereActor->SetMapper( sphereMapper );
 
-  vtkSmartPointer<vtkRenderer> renderer =
-  vtkSmartPointer<vtkRenderer>::New();
-  renderer->AddActor( sphereActor );
+  // vtkSmartPointer<vtkRenderer> renderer =
+  // vtkSmartPointer<vtkRenderer>::New();
+  // renderer->AddActor( sphereActor );
 
 
 
-  widget->GetRenderWindow()->AddRenderer( renderer );
+  // widget->GetRenderWindow()->AddRenderer( renderer );
 
-  fenetre.setLayout(layout);
+  fenetre.setLayout(main_layout);
 
   fenetre.show();
 
