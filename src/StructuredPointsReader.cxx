@@ -92,6 +92,9 @@ int main(int argc, char **argv)
 {
   QApplication app(argc, argv);
 
+    std::string inputFilename = "/home/sebastien/Bureau/VTK_test/src/foot.vtk";// argv[1];
+
+
   QWidget fenetre;
 
   /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -358,9 +361,17 @@ vtkSmartPointer<vtkStructuredPointsReader> reader =
 
 vtkSmartPointer<vtkContourFilter> contour_skin =
     vtkSmartPointer<vtkContourFilter>::New();
+
+  contour_skin -> SetInputConnection(reader -> GetOutputPort());
+  contour_skin -> SetNumberOfContours(1);
+  contour_skin -> SetValue(0,50.0);
     
 vtkSmartPointer<vtkContourFilter> contour_bone =
-    vtkSmartPointer<vtkContourFilter>::New();    
+    vtkSmartPointer<vtkContourFilter>::New();
+
+  contour_bone -> SetInputConnection(reader -> GetOutputPort());
+  contour_bone -> SetNumberOfContours(1);
+  contour_bone -> SetValue(0,50.0);    
 
 
 
@@ -386,6 +397,39 @@ vtkSmartPointer<vtkContourFilter> contour_bone =
   lut_bone -> SetValueRange(0.0,0.1);
   lut_bone -> SetAlphaRange(0.0,0.1);
   lut_bone -> Build();
+
+
+  vtkSmartPointer<vtkPolyDataMapper> mapper_skin =
+  vtkSmartPointer<vtkPolyDataMapper>::New();
+
+  mapper_skin -> SetInputConnection(contour_skin -> GetOutputPort());
+  mapper_skin -> SetLookupTable(lut_skin);
+
+
+  vtkSmartPointer<vtkPolyDataMapper> mapper_bone =
+  vtkSmartPointer<vtkPolyDataMapper>::New();
+
+  mapper_skin -> SetInputConnection(contour_bone -> GetOutputPort());
+  mapper_skin -> SetLookupTable(lut_bone);
+
+  vtkSmartPointer<vtkActor> actor_skin =
+  vtkSmartPointer<vtkActor>::New();
+
+  actor_skin -> SetMapper(mapper_skin);
+
+
+
+  vtkSmartPointer<vtkActor> actor_bone =
+  vtkSmartPointer<vtkActor>::New();
+
+  actor_bone -> SetMapper(mapper_bone);
+
+  vtkSmartPointer<vtkRenderer> renderer =
+  vtkSmartPointer<vtkRenderer>::New();
+
+  widget -> GetRenderWindow() -> AddRenderer(renderer);
+
+
    // QVTKWidget *widget = new QVTKWidget;
   // widget->resize( 500, 500 );
 
@@ -396,24 +440,32 @@ vtkSmartPointer<vtkContourFilter> contour_bone =
   // layout -> addWidget(widget);
   // layout -> addWidget(slider);
 
-  vtkSmartPointer<vtkSphereSource> sphereSource =
-  vtkSmartPointer<vtkSphereSource>::New();
+  // vtkSmartPointer<vtkSphereSource> sphereSource =
+  // vtkSmartPointer<vtkSphereSource>::New();
 
-  vtkSmartPointer<vtkPolyDataMapper> sphereMapper =
-  vtkSmartPointer<vtkPolyDataMapper>::New();
-  sphereMapper->SetInputConnection( sphereSource->GetOutputPort() );
+  // vtkSmartPointer<vtkPolyDataMapper> sphereMapper =
+  // vtkSmartPointer<vtkPolyDataMapper>::New();
+  // sphereMapper->SetInputConnection( sphereSource->GetOutputPort() );
 
-  vtkSmartPointer<vtkActor> sphereActor =
-  vtkSmartPointer<vtkActor>::New();
-  sphereActor->SetMapper( sphereMapper );
+  // vtkSmartPointer<vtkActor> sphereActor =
+  // vtkSmartPointer<vtkActor>::New();
+  // sphereActor->SetMapper( sphereMapper );
 
-  vtkSmartPointer<vtkRenderer> renderer =
-  vtkSmartPointer<vtkRenderer>::New();
-  renderer->AddActor( sphereActor );
+  // vtkSmartPointer<vtkRenderer> renderer =
+  // vtkSmartPointer<vtkRenderer>::New();
+  renderer->AddActor( actor_bone );
+  renderer->AddActor( actor_skin );
+  renderer -> ResetCamera();
+  renderer->SetBackground(.3, .6, .3);
 
-  widget->GetRenderWindow()->AddRenderer( renderer );
+
+  // widget->GetRenderWindow()->AddRenderer( renderer );
 
   vtkRenderWindowInteractor* iren = widget->GetRenderWindow()->GetInteractor();// Get interactor
+
+  iren -> Initialize();
+  iren -> Start();
+  // iren -> ReInitialize();
 
 
   fenetre.setLayout(main_layout);

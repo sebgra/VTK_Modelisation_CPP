@@ -441,6 +441,9 @@ CMakeFiles/StructuredPointsReader.dir/StructuredPointsReader.o: StructuredPoints
   /usr/include/vtk-6.3/vtkCommonMiscModule.h \
   /usr/include/vtk-6.3/vtkLookupTable.h \
   /usr/include/vtk-6.3/vtkScalarsToColors.h \
+  /usr/include/vtk-6.3/vtkStructuredPointsReader.h \
+  /usr/include/vtk-6.3/vtkIOLegacyModule.h \
+  /usr/include/vtk-6.3/vtkDataReader.h \
   /usr/include/vtk-6.3/QVTKWidget.h \
   /usr/include/vtk-6.3/vtkGUISupportQtModule.h \
   /usr/include/vtk-6.3/vtkInteractionStyleModule.h \
@@ -528,6 +531,8 @@ CMakeFiles/StructuredPointsReader.dir/StructuredPointsReader.o: StructuredPoints
 /usr/include/vtk-6.3/vtkCellTypes.h:
 
 /usr/include/c++/7/climits:
+
+/usr/include/vtk-6.3/vtkStructuredPointsReader.h:
 
 /usr/include/vtk-6.3/vtkVariantInlineOperators.h:
 
@@ -626,6 +631,8 @@ CMakeFiles/StructuredPointsReader.dir/StructuredPointsReader.o: StructuredPoints
 /usr/include/x86_64-linux-gnu/c++/7/bits/gthr-default.h:
 
 /usr/include/x86_64-linux-gnu/bits/select.h:
+
+/usr/include/vtk-6.3/vtkDataReader.h:
 
 /usr/include/c++/7/bits/range_access.h:
 
@@ -1232,6 +1239,8 @@ StructuredPointsReader.cxx:
 /usr/include/asm-generic/errno-base.h:
 
 /usr/include/c++/7/ratio:
+
+/usr/include/vtk-6.3/vtkIOLegacyModule.h:
 
 /usr/include/c++/7/ctime:
 

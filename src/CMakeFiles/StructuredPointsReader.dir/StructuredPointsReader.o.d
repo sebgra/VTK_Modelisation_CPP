@@ -359,7 +359,9 @@ CMakeFiles/StructuredPointsReader.dir/StructuredPointsReader.o: \
  /usr/include/vtk-6.3/vtkCommonMiscModule.h \
  /usr/include/vtk-6.3/vtkLookupTable.h \
  /usr/include/vtk-6.3/vtkScalarsToColors.h \
- /usr/include/vtk-6.3/QVTKWidget.h \
+ /usr/include/vtk-6.3/vtkStructuredPointsReader.h \
+ /usr/include/vtk-6.3/vtkIOLegacyModule.h \
+ /usr/include/vtk-6.3/vtkDataReader.h /usr/include/vtk-6.3/QVTKWidget.h \
  /usr/include/vtk-6.3/vtkGUISupportQtModule.h \
  /usr/include/vtk-6.3/vtkInteractionStyleModule.h \
  /usr/include/vtk-6.3/vtkRenderingOpenGLModule.h \
