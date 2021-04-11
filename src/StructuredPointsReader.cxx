@@ -1,69 +1,3 @@
-// #include <QApplication>
-
-// #include <vtkSmartPointer.h>
-// #include <vtkPolyDataMapper.h>
-// #include <vtkStructuredPointsReader.h>
-// #include <vtkImageDataGeometryFilter.h>
-// #include <vtkRenderWindow.h>
-// #include <vtkRenderWindowInteractor.h>
-// #include <vtkRenderer.h>
-// #include <vtkActor.h>
-// #include <vtkSmartPointer.h>
-// #include <vtkSphereSource.h>
-
-// #include <QVTKWidget.h>
-// //#include <QVTKOpenGLNativeWidget.h>
-
-// int main(int argc, char* argv[])
-// {
-//   // Verify input arguments
-//   if ( argc != 2 )
-//     {
-//     std::cout << "Usage: " << argv[0]
-//               << " Filename(.jpeg)" << std::endl;
-//     return EXIT_FAILURE;
-//     }
-
-//   std::string inputFilename = argv[1];
-
-//   // Read the file
-//   vtkSmartPointer<vtkStructuredPointsReader> reader =
-//     vtkSmartPointer<vtkStructuredPointsReader>::New();
-//   reader->SetFileName(inputFilename.c_str());
-//   reader->Update();
-
-//   vtkSmartPointer<vtkImageDataGeometryFilter> geometryFilter =
-//     vtkSmartPointer<vtkImageDataGeometryFilter>::New();
-//   geometryFilter->SetInputConnection(reader->GetOutputPort());
-//   geometryFilter->Update();
-
-//   // Visualize
-//   vtkSmartPointer<vtkPolyDataMapper> mapper =
-//     vtkSmartPointer<vtkPolyDataMapper>::New();
-//   mapper->SetInputConnection(geometryFilter->GetOutputPort());
-
-//   vtkSmartPointer<vtkActor> actor =
-//     vtkSmartPointer<vtkActor>::New();
-//   actor->SetMapper(mapper);
-
-//   vtkSmartPointer<vtkRenderer> renderer =
-//     vtkSmartPointer<vtkRenderer>::New();
-//   vtkSmartPointer<vtkRenderWindow> renderWindow =
-//     vtkSmartPointer<vtkRenderWindow>::New();
-//   renderWindow->AddRenderer(renderer);
-//   vtkSmartPointer<vtkRenderWindowInteractor> renderWindowInteractor =
-//     vtkSmartPointer<vtkRenderWindowInteractor>::New();
-//   renderWindowInteractor->SetRenderWindow(renderWindow);
-
-//   renderer->AddActor(actor);
-//   renderer->SetBackground(.3, .6, .3); // Background color green
-
-//   renderWindow->Render();
-//   renderWindowInteractor->Start();
-
-//   return EXIT_SUCCESS;
-// }
-
 #include <QApplication>
 #include <QSlider>
 #include <QVBoxLayout>
@@ -88,6 +22,14 @@
 
 #include <QVTKWidget.h>
 
+
+void modif_1(QSlider *m_Slider, vtkSmartPointer<vtkContourFilter> m_ContourFilter, vtkRenderWindowInteractor* m_iren  ){
+
+  // m_ContourFilter -> setValue(0,m_Slider -> value());
+  // m_iren -> ReInitialize();
+  std::cout << "done" << endl;
+}
+
 int main(int argc, char **argv)
 {
   QApplication app(argc, argv);
@@ -103,7 +45,7 @@ int main(int argc, char **argv)
   /////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////
 
-  
+
 
   /////////////////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -173,6 +115,13 @@ int main(int argc, char **argv)
   Slider_1->setMinimum(0);
   Slider_1->setMaximum(200);
   Slider_1->setValue(90);
+
+
+  
+  
+  // void modif_1(QSlider *m_Slider, vtkSmartPointer<vtkContourFilter> m_ContourFilter, vtkRenderWindowInteractor* m_iren  ){
+
+  //Slider_1 -> valueChanged() -> connect(Display_1);
 
   QSlider *Slider_2 = new QSlider(Qt::Horizontal, 0);
 
@@ -429,79 +378,35 @@ vtkSmartPointer<vtkContourFilter> contour_bone =
 
   widget -> GetRenderWindow() -> AddRenderer(renderer);
 
-
-   // QVTKWidget *widget = new QVTKWidget;
-  // widget->resize( 500, 500 );
-
-  // QSlider *slider = new QSlider(Qt::Horizontal,0);
-
-  // QVBoxLayout *layout = new QVBoxLayout(); //
-
-  // layout -> addWidget(widget);
-  // layout -> addWidget(slider);
-
-  // vtkSmartPointer<vtkSphereSource> sphereSource =
-  // vtkSmartPointer<vtkSphereSource>::New();
-
-  // vtkSmartPointer<vtkPolyDataMapper> sphereMapper =
-  // vtkSmartPointer<vtkPolyDataMapper>::New();
-  // sphereMapper->SetInputConnection( sphereSource->GetOutputPort() );
-
-  // vtkSmartPointer<vtkActor> sphereActor =
-  // vtkSmartPointer<vtkActor>::New();
-  // sphereActor->SetMapper( sphereMapper );
-
-  // vtkSmartPointer<vtkRenderer> renderer =
-  // vtkSmartPointer<vtkRenderer>::New();
   renderer->AddActor( actor_bone );
   renderer->AddActor( actor_skin );
   renderer -> ResetCamera();
   renderer->SetBackground(.3, .6, .3);
 
 
-  // widget->GetRenderWindow()->AddRenderer( renderer );
 
   vtkRenderWindowInteractor* iren = widget->GetRenderWindow()->GetInteractor();// Get interactor
 
   iren -> Initialize();
   iren -> Start();
-  // iren -> ReInitialize();
 
 
+  QObject::connect(Slider_1, SIGNAL(valueChanged(int)), Display_1,SLOT(display(int)));
+  QObject::connect(Slider_1, SIGNAL(valueChanged(int)), iren, SLOT(modif_1(&Slider_1, &contour_bone, &iren))); 
+  // QObject::connect(Slider_1, SIGNAL(valueChanged(int)), [this](){
+  //   *contour_bone ->setValue(0,m_Slider -> value());
+  //   *iren ->ReInitialize();
+  // } );
+  iren -> ReInitialize();
   fenetre.setLayout(main_layout);
+  fenetre.setWindowTitle("VTK Viewer");
+  fenetre.resize(1920,1080);
 
   fenetre.show();
 
-  // ==============================================
+  std::cout << Slider_1 ->value() << endl;
 
-  // QVTKWidget *widget = new QVTKWidget;
-  // widget->resize( 500, 500 );
 
-  // QVBoxLayout *layout = new QVBoxLayout(); //
-
-  // layout -> addWidget(widget);
-
-  // QSlider slider(Qt::Horizontal,0); //
-
-  // layout -> addWidget(&slider);
-
-  // vtkSmartPointer<vtkSphereSource> sphereSource =
-  // vtkSmartPointer<vtkSphereSource>::New();
-
-  // vtkSmartPointer<vtkPolyDataMapper> sphereMapper =
-  // vtkSmartPointer<vtkPolyDataMapper>::New();
-  // sphereMapper->SetInputConnection( sphereSource->GetOutputPort() );
-
-  // vtkSmartPointer<vtkActor> sphereActor =
-  // vtkSmartPointer<vtkActor>::New();
-  // sphereActor->SetMapper( sphereMapper );
-
-  // vtkSmartPointer<vtkRenderer> renderer =
-  // vtkSmartPointer<vtkRenderer>::New();
-  // renderer->AddActor( sphereActor );
-
-  // widget->GetRenderWindow()->AddRenderer( renderer );
-  // widget->show();
 
   app.exec();
 
