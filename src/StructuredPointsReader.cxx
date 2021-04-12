@@ -23,12 +23,18 @@
 #include <QVTKWidget.h>
 
 
-void modif_1(QSlider *m_Slider, vtkSmartPointer<vtkContourFilter> m_ContourFilter, vtkRenderWindowInteractor* m_iren  ){
+// void modif_1(QSlider *m_Slider, vtkSmartPointer<vtkContourFilter> m_ContourFilter, vtkRenderWindowInteractor* m_iren  ){
 
-  // m_ContourFilter -> setValue(0,m_Slider -> value());
-  // m_iren -> ReInitialize();
+//   // m_ContourFilter -> setValue(0,m_Slider -> value());
+//   // m_iren -> ReInitialize();
+//   std::cout << "done" << endl;
+// }
+
+void modif_1(int value, vtkSmartPointer<vtkContourFilter> m_ContourFilter, vtkRenderWindowInteractor *m_iren){
+
   std::cout << "done" << endl;
 }
+
 
 int main(int argc, char **argv)
 {
@@ -391,13 +397,103 @@ vtkSmartPointer<vtkContourFilter> contour_bone =
   iren -> Start();
 
 
-  QObject::connect(Slider_1, SIGNAL(valueChanged(int)), Display_1,SLOT(display(int)));
-  QObject::connect(Slider_1, SIGNAL(valueChanged(int)), iren, SLOT(modif_1(&Slider_1, &contour_bone, &iren))); 
-  // QObject::connect(Slider_1, SIGNAL(valueChanged(int)), [this](){
-  //   *contour_bone ->setValue(0,m_Slider -> value());
-  //   *iren ->ReInitialize();
-  // } );
-  iren -> ReInitialize();
+QObject::connect(Slider_1, SIGNAL(valueChanged(int)), Display_1,SLOT(display(int)));
+QObject::connect(Slider_1, &QSlider::valueChanged,
+                  [&iren, &contour_skin](int value)
+                  {
+                      //modif_1(value, contour_bone, iren);
+                      std::cout << value << std::endl;
+                      contour_skin -> SetValue(0,value);
+                      //iren -> ReInitialize();
+                  });
+
+
+QObject::connect(Slider_2, SIGNAL(valueChanged(int)), Display_2, SLOT(display(int)));
+QObject::connect(Slider_2, &QSlider::valueChanged,
+                  [&iren, &lut_skin](int value)
+                  {
+                      std::cout << value << endl;
+                      lut_skin->SetHueRange(0.0,value/100);
+                      iren -> ReInitialize();
+                  });
+
+QObject::connect(Slider_3, SIGNAL(valueChanged(int)), Display_3, SLOT(display(int)));
+QObject::connect(Slider_3, &QSlider::valueChanged,
+                  [&iren, &lut_skin](int value)
+                  {
+                      std::cout << value << endl;
+                      lut_skin->SetSaturationRange(0.0,value/100);
+                      iren -> ReInitialize();
+                  });
+
+QObject::connect(Slider_4, SIGNAL(valueChanged(int)), Display_4, SLOT(display(int)));
+QObject::connect(Slider_4, &QSlider::valueChanged,
+                  [&iren, &lut_skin](int value)
+                  {
+                      std::cout << value << endl;
+                      lut_skin->SetValueRange(0.0,value/100);
+                      iren -> ReInitialize();
+                  });
+
+QObject::connect(Slider_5, SIGNAL(valueChanged(int)), Display_5, SLOT(display(int)));
+QObject::connect(Slider_5, &QSlider::valueChanged,
+                  [&iren, &lut_skin](int value)
+                  {
+                      std::cout << value << endl;
+                      lut_skin->SetAlphaRange(0.0,value/100);
+                      iren -> ReInitialize();
+                  });
+
+
+QObject::connect(Slider_6, SIGNAL(valueChanged(int)), Display_6,SLOT(display(int)));
+QObject::connect(Slider_6, &QSlider::valueChanged,
+                  [&iren, &contour_skin](int value)
+                  {
+                      //modif_1(value, contour_bone, iren);
+                      std::cout << value << std::endl;
+                      contour_skin -> SetValue(0,value);
+                      //iren -> ReInitialize();
+                  });
+
+
+QObject::connect(Slider_7, SIGNAL(valueChanged(int)), Display_7, SLOT(display(int)));
+QObject::connect(Slider_7, &QSlider::valueChanged,
+                  [&iren, &lut_skin](int value)
+                  {
+                      std::cout << value << endl;
+                      lut_skin->SetHueRange(0.0,value/100);
+                      iren -> ReInitialize();
+                  });
+
+QObject::connect(Slider_8, SIGNAL(valueChanged(int)), Display_8, SLOT(display(int)));
+QObject::connect(Slider_8, &QSlider::valueChanged,
+                  [&iren, &lut_skin](int value)
+                  {
+                      std::cout << value << endl;
+                      lut_skin->SetSaturationRange(0.0,value/100);
+                      iren -> ReInitialize();
+                  });
+
+QObject::connect(Slider_9, SIGNAL(valueChanged(int)), Display_9, SLOT(display(int)));
+QObject::connect(Slider_9, &QSlider::valueChanged,
+                  [&iren, &lut_skin](int value)
+                  {
+                      std::cout << value << endl;
+                      lut_skin->SetValueRange(0.0,value/100);
+                      iren -> ReInitialize();
+                  });
+
+QObject::connect(Slider_10, SIGNAL(valueChanged(int)), Display_10, SLOT(display(int)));
+QObject::connect(Slider_10, &QSlider::valueChanged,
+                  [&iren, &lut_skin](int value)
+                  {
+                      std::cout << value << endl;
+                      lut_skin->SetAlphaRange(0.0,value/100);
+                      iren -> ReInitialize();
+                  });
+
+
+  // iren -> ReInitialize();
   fenetre.setLayout(main_layout);
   fenetre.setWindowTitle("VTK Viewer");
   fenetre.resize(1920,1080);
